@@ -47,15 +47,8 @@ int main()
 
                 float custApr;
                 cout << "What is your apr for your " << category << "?: ";
-
                 cin >> custApr;
                 rating[category] = custApr;
-                //bugged
-                if (!(cin >> custApr)) 
-                {
-                    cout << "Invalid input! Please enter an integer" << endl;
-                }
-
 
 
                 if (amount <= 1)
@@ -84,30 +77,30 @@ int main()
             }
             else if (hasAsset == "no") {
 
-                cin.ignore(999, '\n');
-                break;
-            }
-            else {
-                cout << "Invalid input. Please type (yes/no) only." << endl;
-                cin.clear();
-                cin.ignore(999, '\n');
+                    cin.ignore(999, '\n');
+                    break;
+                }
+                else {
+                    cout << "Invalid input. Please type (yes/no) only." << endl;
+                    cin.clear();
+                    cin.ignore(999, '\n');
+
+                }
 
             }
+
+
 
         }
 
-
-
-    }
-
-    cout << endl;
+        cout << endl;
 
 
         //extra code, not used.
-    //cout << "APR for each category:\n";
-    //for (const auto& ratingEntry : rating) {
-    //    cout << ratingEntry.first << ": APR - " << ratingEntry.second << "\n";
-    //}
+        //cout << "APR for each category:\n";
+        //for (const auto& ratingEntry : rating) {
+        //    cout << ratingEntry.first << ": APR - " << ratingEntry.second << "\n";
+        //}
 
 
           //bug. will not jump to next category once whie loop is done
@@ -121,12 +114,14 @@ int main()
                         //    cin.ignore(999, '\n');
 
 
-    // double morgag_debt_Total = 0.00;
 
-    // float vehicle_debt_Total = 0.00;
 
-   //  float creCard_debt_Total = 0.00;
-    return 0;
+        // double morgag_debt_Total = 0.00;
 
-}
+        // float vehicle_debt_Total = 0.00;
+
+       //  float creCard_debt_Total = 0.00;
+        return 0;
+
+    }
 
