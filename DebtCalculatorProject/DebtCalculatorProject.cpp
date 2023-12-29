@@ -13,87 +13,101 @@
 #include <array>
 #include <vector>
 #include <map>
-#include <string>
 #include <sstream>
-using namespace std;
+    using namespace std;
 
-bool overOne = true;
-
-int main()
-{
-
-    map<string, int> assets;
-    map<string, float> rating;
-
-    string categories[4] = { "mortgage", "car", "credit card", "student loan" };
-
-    for (const string category : categories) 
+    bool isFloatOrInt(const string & s) 
     {
-        bool validInput = true;
-        while (validInput)
+        istringstream iss(s);
+        float f;
+        return iss >> noskipws >> f && iss.eof();
+    }
+
+    int main() 
+    {
+        map<string, int> assets;
+        map<string, vector<float>> ratings; // store multiple APRs per asset list
+
+        string categories[4] = { "mortgage", "car", "credit card", "student loan" };
+
+        for (const string category : categories) 
         {
-            string hasAsset;
-            cout << "Do you have any " << category << " payments? (yes/no): ";
-            cin >> hasAsset;
-
-            if (hasAsset == "yes")
+            bool validInput = true;
+            while (validInput) 
             {
+                string hasAsset;
+                cout << "Do you have any " << category << " payments? (yes/no): ";
+                cin >> hasAsset;
 
-                int amount;
-                cout << "How many " << category << "s do you have?: ";
-                cin >> amount;
-                assets[category] = amount;
-
-
-                float custApr;
-                cout << "What is your apr for your " << category << "?: ";
-                cin >> custApr;
-                rating[category] = custApr;
-
-
-                if (amount <= 1)
+                if (hasAsset == "yes") 
                 {
-                    break;
-                }
-                else
-                {
-                    for (int i = 0; i < amount - 1; ++i)
+                    int amount;
+                    cout << "How many " << category << "s do you have?: ";
+                    cin >> amount;
+                    assets[category] = amount;
+
+                    vector<float> aprs; // Store APRs for this asset
+
+                    for (int i = 0; i < amount; ++i) 
                     {
-                        cout << "What is your apr for your " << category << "?: ";
-                        float otherAprs;
-                        cin >> otherAprs;
+                        string userInput;
+                        float custApr;
+
+                        while (true) 
+                        {
+                            cout << "What is your apr for your " << category << " " << i + 1 << "?: ";
+                            cin >> userInput;
+
+                            if (isFloatOrInt(userInput)) 
+                            {
+                                custApr = stof(userInput);
+                                aprs.push_back(custApr); // Stores the valid APR
+                                break;
+                            }
+                            else 
+                            {
+                                cout << "Invalid input. Please enter a float or an integer value for APR." << "\n";
+                                cin.clear();
+                                cin.ignore(999, '\n');
+                            }
+                        }
                     }
 
-                }
+                    ratings[category] = aprs; // Store the APRs for this asset
 
-                cout << "Assets list:\n";
-                for (const auto asset : assets)
+                    cout << "Assets list:\n";
+                    for (const auto& asset : assets) 
+                    {
+                        cout << asset.first << ": " << asset.second << "\n";
+                    }
+
+                    cout << "APRs for " << category << ":\n";
+                    for (size_t i = 0; i < aprs.size(); ++i) {
+                        cout << category << " " << i + 1 << ": " << aprs[i] << "\n";
+                    }
+                    cout << "\n";
+                    
+
+                    cout << endl;
+                    break;
+                }
+                else if (hasAsset == "no") 
                 {
-                    cout << asset.first << ": " << asset.second << "\n";
-                }
-                cout << endl;
-                break;
-
-            }
-            else if (hasAsset == "no") {
-
                     cin.ignore(999, '\n');
                     break;
                 }
-                else {
+                else 
+                {
                     cout << "Invalid input. Please type (yes/no) only." << endl;
                     cin.clear();
                     cin.ignore(999, '\n');
-
                 }
-
             }
-
-
-
         }
 
         cout << endl;
+        return 0;
+    }
 
 
         //extra code, not used.
@@ -111,17 +125,11 @@ int main()
 
 
                         //    cin.clear();
-                        //    cin.ignore(999, '\n');
-
-
-
-
+                        //    cin.ignore(999, '\n'
+                        // 
         // double morgag_debt_Total = 0.00;
 
         // float vehicle_debt_Total = 0.00;
 
        //  float creCard_debt_Total = 0.00;
-        return 0;
-
-    }
-
+    
