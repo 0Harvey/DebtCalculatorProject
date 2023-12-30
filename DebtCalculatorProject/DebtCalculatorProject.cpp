@@ -83,7 +83,7 @@
 
                     cout << "APRs for " << category << ":\n";
                     for (size_t i = 0; i < aprs.size(); ++i) {
-                        cout << category << " " << i + 1 << ": " << aprs[i] << "\n";
+                        cout << category << " " << i + 1 << ": " << aprs[i] << "%" << "\n";
                     }
                     cout << "\n";
                     
