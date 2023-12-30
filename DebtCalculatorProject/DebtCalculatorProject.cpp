@@ -66,7 +66,7 @@
                             }
                             else 
                             {
-                                cout << "Invalid input. Please enter a float or an integer value for APR." << "\n";
+                                cout << "Invalid input. Please enter a decimal or an integer value for APR." << "\n";
                                 cin.clear();
                                 cin.ignore(999, '\n');
                             }
