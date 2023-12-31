@@ -13,8 +13,9 @@
 #include <array>
 #include <vector>
 #include <map>
+#include <string>
 #include <sstream>
-    using namespace std;
+using namespace std;
 
     bool isFloatOrInt(const string & s) 
     {
@@ -23,35 +24,38 @@
         return iss >> noskipws >> f && iss.eof();
     }
 
-    int main() 
-    {
-        map<string, int> assets;
+int main()
+{
+
+    map<string, int> assets;
         map<string, vector<float>> ratings; // store multiple APRs per asset list
 
-        string categories[4] = { "mortgage", "car", "credit card", "student loan" };
+    string categories[4] = { "mortgage", "car", "credit card", "student loan" };
 
         for (const string category : categories) 
         {
-            bool validInput = true;
-            while (validInput) 
-            {
-                string hasAsset;
-                cout << "Do you have any " << category << " payments? (yes/no): ";
-                cin >> hasAsset;
+        bool validInput = true;
+        while (validInput)
+        {
+            string hasAsset;
+            cout << "Do you have any " << category << " payments? (yes/no): ";
+            cin >> hasAsset;
 
-                if (hasAsset == "yes") 
-                {
-                    int amount;
-                    cout << "How many " << category << "s do you have?: ";
-                    cin >> amount;
-                    assets[category] = amount;
+            if (hasAsset == "yes")
+            {
+
+                int amount;
+                cout << "How many " << category << "s do you have?: ";
+                cin >> amount;
+                assets[category] = amount;
 
                     vector<float> aprs; // Store APRs for this asset
 
                     for (int i = 0; i < amount; ++i) 
                     {
                         string userInput;
-                        float custApr;
+                float custApr;
+                cout << "What is your apr for your " << category << "?: ";
 
                         while (true) 
                         {
@@ -59,27 +63,29 @@
                             cin >> userInput;
 
                             if (isFloatOrInt(userInput)) 
-                            {
+                {
                                 custApr = stof(userInput);
                                 aprs.push_back(custApr); // Stores the valid APR
-                                break;
-                            }
+                    break;
+                }
                             else 
                             {
                                 cout << "Invalid input. Please enter a decimal or an integer value for APR." << "\n";
-                                cin.clear();
+                    cin.clear();
                                 cin.ignore(999, '\n');
                             }
-                        }
                     }
+
+
+                }
 
                     ratings[category] = aprs; // Store the APRs for this asset
 
-                    cout << "Assets list:\n";
+                cout << "Assets list:\n";
                     for (const auto& asset : assets) 
                     {
-                        cout << asset.first << ": " << asset.second << "\n";
-                    }
+                    cout << asset.first << ": " << asset.second << "\n";
+                }
 
                     cout << "APRs for " << category << ":\n";
                     for (size_t i = 0; i < aprs.size(); ++i) {
@@ -87,33 +93,39 @@
                     }
                     cout << "\n";
                     
-                    cout << endl;
-                    break;
-                }
+                cout << endl;
+                break;
+
+            }
                 else if (hasAsset == "no") 
                 {
-                    cin.ignore(999, '\n');
-                    break;
-                }
+                cin.ignore(999, '\n');
+                break;
+            }
                 else 
                 {
-                    cout << "Invalid input. Please type (yes/no) only." << endl;
-                    cin.clear();
-                    cin.ignore(999, '\n');
-                }
+                cout << "Invalid input. Please type (yes/no) only." << endl;
+                cin.clear();
+                cin.ignore(999, '\n');
+
             }
+
         }
 
-        cout << endl;
+
+
+    }
+
+    cout << endl;
         return 0;
     }
 
 
         //extra code, not used.
-        //cout << "APR for each category:\n";
-        //for (const auto& ratingEntry : rating) {
-        //    cout << ratingEntry.first << ": APR - " << ratingEntry.second << "\n";
-        //}
+    //cout << "APR for each category:\n";
+    //for (const auto& ratingEntry : rating) {
+    //    cout << ratingEntry.first << ": APR - " << ratingEntry.second << "\n";
+    //}
 
 
           //bug. will not jump to next category once whie loop is done
@@ -126,10 +138,7 @@
                         //    cin.clear();
                         //    cin.ignore(999, '\n'
                         // 
-        // double morgag_debt_Total = 0.00;
+    // double morgag_debt_Total = 0.00;
 
-        // float vehicle_debt_Total = 0.00;
+    // float vehicle_debt_Total = 0.00;
 
-       //  float creCard_debt_Total = 0.00;
-    
-    
