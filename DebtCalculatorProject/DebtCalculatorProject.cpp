@@ -55,7 +55,7 @@ int main()
 				{
 					string userInput;
 					float custApr;
-					cout << "What is your apr for your " << category << "?: ";
+					
 
 					while (true)
 					{
@@ -112,7 +112,7 @@ int main()
 
 		}
 
-
+		
 
 	}
 

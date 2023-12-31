@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DebtCalculatorProject", "DebtCalculatorProject\DebtCalculatorProject.vcxproj", "{F1700C09-EE5F-411F-A736-3F89967BADA9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "advancedapr_info", "advancedapr_info\advancedapr_info.vcxproj", "{F87C450A-4CB6-46A0-9BEA-0772DC3F9F83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{F1700C09-EE5F-411F-A736-3F89967BADA9}.Release|x64.Build.0 = Release|x64
 		{F1700C09-EE5F-411F-A736-3F89967BADA9}.Release|x86.ActiveCfg = Release|Win32
 		{F1700C09-EE5F-411F-A736-3F89967BADA9}.Release|x86.Build.0 = Release|Win32
+		{F87C450A-4CB6-46A0-9BEA-0772DC3F9F83}.Debug|x64.ActiveCfg = Debug|x64
+		{F87C450A-4CB6-46A0-9BEA-0772DC3F9F83}.Debug|x64.Build.0 = Debug|x64
+		{F87C450A-4CB6-46A0-9BEA-0772DC3F9F83}.Debug|x86.ActiveCfg = Debug|Win32
+		{F87C450A-4CB6-46A0-9BEA-0772DC3F9F83}.Debug|x86.Build.0 = Debug|Win32
+		{F87C450A-4CB6-46A0-9BEA-0772DC3F9F83}.Release|x64.ActiveCfg = Release|x64
+		{F87C450A-4CB6-46A0-9BEA-0772DC3F9F83}.Release|x64.Build.0 = Release|x64
+		{F87C450A-4CB6-46A0-9BEA-0772DC3F9F83}.Release|x86.ActiveCfg = Release|Win32
+		{F87C450A-4CB6-46A0-9BEA-0772DC3F9F83}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
